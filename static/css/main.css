@@ -1,0 +1,25 @@
+html {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    color: blue;
+}
+
+table {
+    border: 1px solid grey;
+}
+
+th {
+    font-weight: bold;
+}
+
+td {
+    padding: 4px;
+    border: 1px solid lightgray;
+}
+
+.Table-Records {
+    text-align: center;
+    margin: 0 auto;
+}
