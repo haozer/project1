@@ -1,5 +1,6 @@
-html {
-    font-family: 'Ubuntu', sans-serif;
+html,
+body {
+    font-family: 'Ubuntu', sans-serif !important;
 }
 
 h1 {
