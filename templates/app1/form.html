@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+  <title>App1 Form</title>
+{% endblock %}
+
+{% block body_block %}
+  <div class="jumbotron">
+    <h1>App1 Form</h1>
+  </div>
+
+  <h2>Please fill in the form</h2>
+  <form class="users-form" method="post">
+    {{ the_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Submit" />
+  </form>
+{% endblock %}

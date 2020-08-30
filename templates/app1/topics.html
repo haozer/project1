@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+  <title>App1 Topics</title>
+{% endblock %}
+
+{% block body_block %}
+  <!-- jumbotron -->
+  <div class="jumbotron">
+    <h1>{{ section.parent|upper }} {{ section.title|cut:"o" }}</h1>
+  </div>
+  <!-- end: jumbotron -->
+
+  <div class="Table-Records">
+      {% if topics %}
+        <table>
+          <thead>
+            <th>Topics</th>
+          </thead>
+          <tbody>
+          {% for top in topics %}
+          <tr>
+            <td>{{ top.top_name }}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No Data</p>
+      {% endif %}
+  </div>
+{% endblock %}

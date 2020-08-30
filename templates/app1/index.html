@@ -1,34 +1,36 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en-GB">
-  <head>
-    <meta charset="utf-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"> 
-  </head>
-  <body>
-    <h1>Access Records</h1>
 
-    <div class="Table-Records">
-      {% if access_records %}
-        <table>
-          <thead>
-            <th>Site Name</th>
-            <th>Date Accessed</th>
-          </thead>
-          <tbody>
-          {% for acc in access_records %}
-          <tr>
-            <td>{{ acc.name }}</td>
-            <td>{{ acc.date }}</td>
-          </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      {% else %}
-        <p>No Data</p>
-      {% endif %}
-    </div>
-  </body>
-</html>
+{% block title_block %}
+  <title>App1 Index</title>
+{% endblock %}
+
+{% block body_block %}
+  <!-- jumbotron -->
+  <div class="jumbotron">
+    <h1>App1 Index</h1>
+  </div>
+  <!-- end: jumbotron -->
+
+  <div class="Table-Records">
+    {% if access_records %}
+      <table>
+        <thead>
+          <th>Site Name</th>
+          <th>Date Accessed</th>
+        </thead>
+        <tbody>
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No Data</p>
+    {% endif %}
+  </div>
+{% endblock %}

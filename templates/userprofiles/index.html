@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block title_block %}
-  <title>Users Index</title>
+  <title>Userprofiless Index</title>
 {% endblock %}
 
 {% block body_block %}
   <!-- jumbotron -->
   <div class="jumbotron">
-    <h1>Users Index</h1>
+    <h1>Userprofiless Index</h1>
   </div>
   <!-- end: jumbotron -->
 
@@ -17,16 +17,18 @@
     {% if user_records %}
       <table>
         <thead>
-          <th>Forename</th>
-          <th>Surname</th>
+          <th>Username</th>
           <th>Email</th>
+          <th>Site</th>
+          <th>Pic</th>
         </thead>
         <tbody>
         {% for user in user_records %}
         <tr>
-          <td>{{ user.forename }}</td>
-          <td>{{ user.surname }}</td>
-          <td>{{ user.email }}</td>
+          <td>{{ user.user.username }}</td>
+          <td>{{ user.user.email }}</td>
+          <td>{{ user.portfolio_site }}</td>
+          <td><img src="{% get_media_prefix %}{{ user.profile_pic }}" width="50" height="50"/></td>
         </tr>
         {% endfor %}
         </tbody>

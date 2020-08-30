@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+  <title>UsersProfiles Form</title>
+{% endblock %}
+
+{% block body_block %}
+  {% if is_authenticated %}
+    <!-- jumbotron -->
+    <div class="jumbotron">
+      <h1>Thanks</h1>
+    </div>
+    <!-- end: jumbotron -->
+  {% else %}
+    <!-- jumbotron -->
+    <div class="jumbotron">
+      <h1>UsersProfiles Form</h1>
+      <h3>Fill out the form</h3>
+    </div>
+    <!-- end: jumbotron -->
+
+    <!-- code injection -->
+    <div class="container">
+      <h2>Please fill in the form</h2>
+      <form class="users-form" enctype="multipart/form-data" method="post">
+        {{ user_form.as_p }}
+        {{ userprofile_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+    <!-- end: code injection -->
+  {% endif %}
+{% endblock %}

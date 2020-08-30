@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <!-- title_block -->
+      {% block title_block %}
+      {% endblock %}
+      <!-- end: title_block -->
+
+    <!-- styles -->
+    <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <!-- main wrapper -->
+    <div class="container">
+      <!-- navigation -->
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <!-- logo -->
+        <a class="navbar-brand" href="/">
+          <img src="{% static "images/8.png" %}" width="25" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <!-- end: logo -->
+
+        <!-- toggle -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- end: toggle -->
+        
+        <!-- collapsible -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- link list -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                App1
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'app1:index' %}">Index</a>
+                <a class="dropdown-item" href="{% url 'app1:form' %}">Form</a>
+                <a class="dropdown-item" href="{% url 'app1:topics' %}">Topics</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'app1:test' %}">Test</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Users
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'users:index' %}">Index</a>
+                <a class="dropdown-item" href="{% url 'users:form' %}">Form</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                <a class="dropdown-item" href="{% url 'userprofiles:index' %}">Index</a>
+                <a class="dropdown-item" href="{% url 'userprofiles:register' %}">Register</a>
+              </div>
+            </li>
+          </ul>
+          <!-- end: link list -->
+
+          <!-- search -->
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <!-- end: search -->
+        </div>
+        <!-- end: collapsible -->
+      </nav>
+      <!-- end: navigation -->
+
+      <!-- body_block -->
+      {% block body_block %}
+      {% endblock %}
+      <!-- end: body_block -->
+
+      <!-- footer -->
+      <footer class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img src="{% static "images/8.png" %}" width="16" height="20" class="d-inline-block align-top" alt="">
+            <small class="d-block mb-3 text-muted">&copy; 2020</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>App1</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="{% url 'app1:index' %}">Index</a></li>
+              <li><a class="text-muted" href="{% url 'app1:form' %}">Form</a></li>
+              <li><a class="text-muted" href="{% url 'app1:topics' %}">Topics</a></li>
+              <li><a class="text-muted" href="{% url 'app1:test' %}">Test</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Users</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="{% url 'users:index' %}">Index</a></li>
+              <li><a class="text-muted" href="{% url 'users:form' %}">Form</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Admin</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="{% url 'admin:index' %}">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <!-- end: footer -->
+
+    </div>
+    <!-- end: main wrapper -->
+
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- end: bootstrap -->
+  </body>
+</html>
