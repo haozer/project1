@@ -35,7 +35,7 @@ SECRET_KEY = 'pv+6cmrcu#_d73y%hu5!n2*ubivhw5fq*8(v-0u*hnb1+arb0*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [haozer.pythonanywhere.com]
+ALLOWED_HOSTS = ['haozer.pythonanywhere.com']
 
 
 # Application definition
