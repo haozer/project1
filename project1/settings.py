@@ -151,3 +151,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_DIR
 
 LOGIN_URL = '/userprofiles/login'
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
