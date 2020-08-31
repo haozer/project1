@@ -2,7 +2,14 @@ from django.shortcuts import render
 from userprofiles.models import UserProfiles
 from userprofiles import form
 
+#
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required
 def register(request):
   user_form = form.UserForm()
   userprofile_form = form.UserProfilesForm()
@@ -29,7 +36,7 @@ def register(request):
       profile.save()
       print("User Record created in DB")
 
-      return thank_you(request)
+      return HttpResponseRedirect(reverse('thank_you'))
 
     else:
       print(user_form.errors, userprofile_form.errors)
@@ -44,3 +51,33 @@ def index(request):
   user_dict = {'user_records':user_list}
 
   return render(request, 'userprofiles/index.html', context=user_dict)
+
+def user_login(request):
+  if request.method == 'POST':
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+
+    user = authenticate(username=username, password=password)
+
+    if user:
+      if user.is_active:
+        login(request, user)
+
+        return HttpResponseRedirect(reverse('userprofiles:thank_you'))
+
+      else:
+        return HttpResponse('ACCOUNT NOT ACTIVE')
+
+    else:
+      print("Someone tried to login and failed!")
+      print("Username: {} and Password: {}".format(username, password))
+
+      return HttpResponse("Invalid login details supplied!")
+  
+  return render(request, 'userprofiles/login.html', {})
+
+@login_required
+def user_logout(request):
+  logout(request)
+
+  return HttpResponseRedirect(reverse('userprofiles:thank_you'))

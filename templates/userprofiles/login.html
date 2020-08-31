@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+  <title>Userprofiless Login</title>
+{% endblock %}
+
+{% block body_block %}
+  <!-- jumbotron -->
+  <div class="jumbotron">
+    <h1>Please log in</h1>
+    
+    <form action="{% url 'userprofiles:user_login' %}" method="POST">
+      {% csrf_token %}
+
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="Enter username" />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+
+      <input type="submit" name="" value="Login" />
+    </form>
+  </div>
+  <!-- end: jumbotron -->
+
+
+{% endblock %}
